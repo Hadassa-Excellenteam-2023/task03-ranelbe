@@ -29,7 +29,7 @@ public:
 
 	/*
 	* push an element into the queue
-	* param t: the element to be pushed
+	* param elem: the element to be pushed
 	*/
 	void push(const T& elem)
 	{
