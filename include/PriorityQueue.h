@@ -35,10 +35,10 @@ public:
 	{
 		// iterator to the first element of the queue
 		// first element represents the highest priority
-		auto it = m_pqueue.begin();
+		auto it = m_pqueue.cbegin();
 
 		// find the right position to insert elem based on the comparator
-		while (it != m_pqueue.end() && Comparator<T>()(elem, *it) > 0) {
+		while (it != m_pqueue.cend() && Comparator<T>()(elem, *it) > 0) {
 			++it;
 		}
 		m_pqueue.insert(it, elem);
