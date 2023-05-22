@@ -16,7 +16,7 @@ struct Comparator {
 	* a-b = 0 --> a = b
 	* a-b < 0 --> a < b
 	*/
-	T operator()(T a, T b) const {
+	T operator()(const T& a, const T& b) const {
 		return a - b;
 	}
 };
@@ -37,8 +37,9 @@ public:
 		// first element represents the highest priority
 		auto it = m_pqueue.cbegin();
 
+		Comparator<T> comparator;
 		// find the right position to insert elem based on the comparator
-		while (it != m_pqueue.cend() && Comparator<T>()(elem, *it) > 0) {
+		while (it != m_pqueue.cend() && comparator(elem, *it) > 0) {
 			++it;
 		}
 		m_pqueue.insert(it, elem);
