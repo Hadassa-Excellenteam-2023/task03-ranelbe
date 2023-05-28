@@ -37,9 +37,8 @@ public:
 		// first element represents the highest priority
 		auto it = m_pqueue.cbegin();
 
-		Comparator<T> comparator;
 		// find the right position to insert elem based on the comparator
-		while (it != m_pqueue.cend() && comparator(elem, *it) > 0) {
+		while (it != m_pqueue.cend() && m_comparator(elem, *it) > 0) {
 			++it;
 		}
 		m_pqueue.insert(it, elem);
@@ -61,4 +60,5 @@ public:
 
 private:
 	std::list<T> m_pqueue;
+	Comparator<T> m_comparator;
 };
